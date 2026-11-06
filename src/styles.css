@@ -164,6 +164,32 @@ button { font: inherit; }
   .reveal { opacity: 1; transform: none; }
 }
 
+.project-group + .project-group { margin-top: 48px; }
+.project-group__title { margin: 0 0 16px; color: var(--muted); font: 500 16px var(--display); }
+.project-content { flex: 1; }
+.project-link { display: inline-flex; align-items: center; gap: 7px; width: fit-content; margin-top: 17px; color: var(--green); font-size: 10px; font-weight: 600; }
+.project-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.project-link .arrow-icon { width: 13px; height: 13px; }
+.project-art--marketing { background: #e6eee3; }
+.project-art--gbbc { background: #e4ebe8; }
+.project-art--store { background: #f0e9dd; }
+.project-art--food { background: #f2e7df; }
+.project-preview { width: min(360px, 78%); overflow: hidden; border: 1px solid rgba(43, 53, 43, .14); background: #fff; box-shadow: 0 10px 24px rgba(30, 40, 30, .14); color: #273128; }
+.project-preview .window-bar { color: #737e72; border-color: #e8ece6; }
+.project-preview__content { min-height: 112px; padding: 17px 19px 14px; }
+.project-preview__content > span { display: block; color: #6d796c; font: 7px var(--mono); letter-spacing: .1em; }
+.project-preview__content > strong { display: block; margin-top: 6px; font: 700 22px var(--display); letter-spacing: -.05em; }
+.project-preview__shapes { display: flex; gap: 7px; margin-top: 12px; }
+.project-preview__shapes i { display: block; height: 22px; flex: 1; border-radius: 2px; background: #dce8d4; }
+.project-preview--marketing .project-preview__content > strong { color: #486f34; }
+.project-preview--marketing .project-preview__shapes i:first-child { flex: 1.6; background: #e1efce; }
+.project-preview--gbbc .project-preview__content > strong { color: #315d52; }
+.project-preview--gbbc .project-preview__shapes i { background: #d9e8e2; }
+.project-preview--store .project-preview__content > strong { color: #795b39; }
+.project-preview--store .project-preview__shapes i { height: 27px; background: #eadcc8; }
+.project-preview--food .project-preview__content > strong { color: #985b45; }
+.project-preview--food .project-preview__shapes i { height: 27px; border-radius: 50%; background: #f1d8c8; }
+
 :root[data-theme="light"] {
   color-scheme: light;
   color: #252a24;

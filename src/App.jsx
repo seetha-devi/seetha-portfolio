@@ -62,6 +62,7 @@ const experiences = [
       "Helped migrate a large website from WordPress to Next.js, rebuilding 110+ static and 500+ dynamic pages.",
       "Created reusable React components and managed application state with Redux Toolkit and React state.",
       "Integrated Contentful CMS and REST APIs, with Axios for data fetching and submission.",
+      "Contributed to the GBBC website project.",
       "Built validated forms with Formik, Yup, and Zod; improved SEO, accessibility, and page-load performance.",
       "Debugged Java and Spring Boot applications and implemented fixes for reported defects.",
     ],
@@ -73,29 +74,77 @@ const projects = [
   {
     number: "01",
     category: "PRODUCT PLATFORM · SECTIGO",
+    type: "professional",
     title: "SiteLock platform experience",
     description:
-      "Responsive, reusable Next.js interfaces for a cybersecurity platform—shaped by a product rebrand and connected to Laravel APIs.",
+      "Responsive, reusable Next.js interfaces for SiteLock’s cybersecurity platform, shaped by a product rebrand and connected to Laravel APIs. The product dashboard is separate from the public marketing website shown below.",
     tags: ["Next.js", "Laravel", "REST APIs", "OAuth 2.0"],
     visual: "sitelock",
   },
   {
     number: "02",
     category: "CONTENT PLATFORM · SCUBE",
+    type: "professional",
     title: "A website, reimagined at scale",
     description:
       "Helped move a large website from WordPress to Next.js, rebuilding 110+ static pages and 500+ dynamic pages for a more maintainable foundation.",
     tags: ["Next.js", "TypeScript", "Contentful", "SEO"],
     visual: "migration",
+    url: "https://www.innovatefinance.com/",
   },
   {
     number: "03",
     category: "INTEGRATION · AUTHENTICATION",
+    type: "professional",
     title: "Secure connections, seamless flows",
     description:
       "Worked across token-based API communication and dashboard-to-WordPress connectivity, applying OAuth, OIDC, and JWT concepts.",
     tags: ["OAuth 2.0", "OIDC", "JWT", "API integration"],
     visual: "security",
+  },
+  {
+    number: "04",
+    category: "MARKETING WEBSITE · SECTIGO",
+    type: "professional",
+    title: "SiteLock marketing website",
+    description:
+      "A separate project from the SiteLock product platform: the public marketing website, built with Vue.js.",
+    tags: ["Vue.js", "Marketing website"],
+    visual: "marketing",
+    url: "https://www.sitelock.com/",
+  },
+  {
+    number: "05",
+    category: "WEBSITE · SCUBE",
+    type: "professional",
+    title: "GBBC",
+    description:
+      "Website project from my time at SCube.",
+    tags: ["Next.js", "Tailwind CSS", "Material UI", "Contentful"],
+    visual: "gbbc",
+    url: "https://gbbc.io/",
+  },
+  {
+    number: "06",
+    category: "PERSONAL PROJECT · LEARNING",
+    type: "personal",
+    title: "Online store",
+    description:
+      "A personal project built for learning and practice. Explore the live project.",
+    tags: ["Personal project", "Learning"],
+    visual: "store",
+    url: "https://store-umber-one.vercel.app/",
+  },
+  {
+    number: "07",
+    category: "PERSONAL PROJECT · LEARNING",
+    type: "personal",
+    title: "Food app",
+    description:
+      "A personal project built for learning and practice. Explore the live project.",
+    tags: ["Personal project", "Learning"],
+    visual: "food",
+    url: "https://food-app-lilac-gamma.vercel.app/",
   },
 ];
 
@@ -140,6 +189,48 @@ function SectionHeading({ label, title, note }) {
 }
 
 function ProjectVisual({ type }) {
+  if (type === "marketing" || type === "gbbc" || type === "store" || type === "food") {
+    const preview = {
+      marketing: {
+        browser: "sitelock.com",
+        eyebrow: "WEBSITE SECURITY",
+        heading: "SiteLock",
+        layout: "project-preview--marketing",
+      },
+      gbbc: {
+        browser: "gbbc.io",
+        eyebrow: "SCUBE WEBSITE PROJECT",
+        heading: "GBBC",
+        layout: "project-preview--gbbc",
+      },
+      store: {
+        browser: "online store",
+        eyebrow: "FIND SOMETHING YOU LOVE",
+        heading: "The little shop",
+        layout: "project-preview--store",
+      },
+      food: {
+        browser: "food app",
+        eyebrow: "GOOD FOOD, GOOD MOOD",
+        heading: "Fresh picks",
+        layout: "project-preview--food",
+      },
+    }[type];
+
+    return (
+      <div className={`project-art project-art--${type}`} aria-hidden="true">
+        <div className={`project-preview ${preview.layout}`}>
+          <div className="window-bar"><i /><i /><i /><span>{preview.browser}</span></div>
+          <div className="project-preview__content">
+            <span>{preview.eyebrow}</span>
+            <strong>{preview.heading}</strong>
+            <div className="project-preview__shapes"><i /><i /><i /></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (type === "migration") {
     return (
       <div className="project-art project-art--migration" aria-hidden="true">
@@ -337,21 +428,39 @@ function App() {
         </section>
 
         <section className="work-section section-shell section-space" id="work">
-          <Reveal><SectionHeading label="PROJECTS" title={<>Projects<span className="heading-period">.</span></>} note="Selected product and platform work from my time at Sectigo and SCube." /></Reveal>
-          <div className="project-grid">
-            {projects.map((project, index) => (
-              <Reveal className={`project-card project-card--${project.visual}`} delay={index * 100} key={project.number}>
-                <ProjectVisual type={project.visual} />
-                <div className="project-content">
-                  <div className="project-meta"><span>{project.category}</span><span>{project.number} / 03</span></div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+          <Reveal><SectionHeading label="PROJECTS" title={<>Projects<span className="heading-period">.</span></>} note="Professional product and website work, plus personal projects built for learning." /></Reveal>
+          {[
+            { type: "professional", title: "Professional work" },
+            { type: "personal", title: "Personal projects · learning" },
+          ].map((group) => {
+            const groupProjects = projects.filter((project) => project.type === group.type);
+            return (
+              <div className="project-group" key={group.type}>
+                <h3 className="project-group__title">{group.title}</h3>
+                <div className="project-grid">
+                  {groupProjects.map((project, index) => (
+                    <Reveal className={`project-card project-card--${project.visual}`} delay={index * 80} key={project.number}>
+                      <ProjectVisual type={project.visual} />
+                      <div className="project-content">
+                        <div className="project-meta"><span>{project.category}</span><span>{project.number} / {projects.length.toString().padStart(2, "0")}</span></div>
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                        <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                        {project.url && (
+                          <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+                            View live site <ArrowIcon diagonal />
+                          </a>
+                        )}
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="work-footnote"><span>↳</span> These are collaborative product contributions; details are intentionally kept high-level.</Reveal>
+                {group.type === "professional" && (
+                  <Reveal className="work-footnote"><span>↳</span> These are collaborative product contributions; details are intentionally kept high-level.</Reveal>
+                )}
+              </div>
+            );
+          })}
         </section>
 
         <section className="skills-section section-space" id="skills">
