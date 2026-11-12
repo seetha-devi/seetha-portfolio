@@ -155,6 +155,8 @@ const certifications = [
   "AI Coding Agents with GitHub Copilot",
 ];
 
+const emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=seethadevi322001@gmail.com&su=Portfolio%20inquiry";
+
 function ArrowIcon({ diagonal = false }) {
   return (
     <svg
@@ -345,7 +347,8 @@ function App() {
           <a href="#about" onClick={closeMenu}>Profile summary</a>
           <a href="#work" onClick={closeMenu}>Projects</a>
           <a href="#experience" onClick={closeMenu}>Experience</a>
-          <a className="nav-contact" href="#contact" onClick={closeMenu}>Let’s talk <ArrowIcon diagonal /></a>
+          <a className="nav-resume" href="/resume.pdf" download="Seethadevi-Frontend-Resume.pdf" onClick={closeMenu}>Resume <ArrowIcon /></a>
+          <a className="nav-contact" href={emailLink} target="_blank" rel="noreferrer" onClick={closeMenu}>Let’s talk <ArrowIcon diagonal /></a>
         </nav>
         <button
           className="theme-toggle"
@@ -379,7 +382,8 @@ function App() {
             </p>
             <div className="hero__actions">
               <a className="button button--dark" href="#work">Explore my work <ArrowIcon /></a>
-              <a className="text-link" href="mailto:seethadevi322001@gmail.com">Get in touch <ArrowIcon diagonal /></a>
+              <a className="text-link" href={emailLink} target="_blank" rel="noreferrer">Get in touch <ArrowIcon diagonal /></a>
+              <a className="text-link" href="/resume.pdf" download="Seethadevi-Frontend-Resume.pdf">Download resume <ArrowIcon /></a>
             </div>
             <div className="hero__meta">
               <span><i className="meta-pin">⌖</i> Chennai, India</span>
@@ -421,7 +425,7 @@ function App() {
               <p className="intro-band__body">
                 I’m a frontend developer with 3.7 years of experience creating responsive, scalable products. From rebranding a cybersecurity dashboard to rebuilding hundreds of pages, I bring a thoughtful, collaborative approach to every layer of the UI.
               </p>
-              <a className="light-link" href="mailto:seethadevi322001@gmail.com">Have something in mind? <ArrowIcon diagonal /></a>
+              <a className="light-link" href={emailLink} target="_blank" rel="noreferrer">Have something in mind? <ArrowIcon diagonal /></a>
             </Reveal>
             <div className="intro-decoration" aria-hidden="true">S<span>.</span></div>
           </div>
@@ -533,11 +537,11 @@ function App() {
             <Reveal>
               <p className="eyebrow eyebrow--light"><span className="eyebrow-dot" /> CONTACT</p>
               <h2>Contact<span className="heading-period">.</span></h2>
-              <a className="button button--lime" href="mailto:seethadevi322001@gmail.com">Start a conversation <ArrowIcon diagonal /></a>
+              <a className="button button--lime" href={emailLink} target="_blank" rel="noreferrer">Start a conversation <ArrowIcon diagonal /></a>
             </Reveal>
             <Reveal className="contact-details" delay={120}>
               <p>I’m always happy to talk about a good challenge, a thoughtful team, or the details that make a product feel right.</p>
-              <a href="mailto:seethadevi322001@gmail.com">seethadevi322001@gmail.com <ArrowIcon diagonal /></a>
+              <a href={emailLink} target="_blank" rel="noreferrer">seethadevi322001@gmail.com <ArrowIcon diagonal /></a>
               <a href="tel:+918072554494">+91 80725 54494 <ArrowIcon diagonal /></a>
               <a href="https://www.linkedin.com/in/seetha-devi-597a76262/" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon diagonal /></a>
             </Reveal>
