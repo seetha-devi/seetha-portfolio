@@ -388,7 +388,7 @@ function App() {
             <div className="hero__meta">
               <span><i className="meta-pin">⌖</i> Chennai, India</span>
               <span className="meta-divider" />
-              <span>3.7 years building for the web</span>
+              <span>4 years building for the web</span>
             </div>
           </div>
           <div className="hero__visual" aria-label="Abstract illustration representing frontend development">
@@ -419,11 +419,11 @@ function App() {
           <div className="section-shell intro-band__inner">
             <Reveal>
               <p className="eyebrow eyebrow--light"><span className="eyebrow-dot" /> PROFILE SUMMARY</p>
-              <h2>Frontend developer with<br /><em>3.7 years of experience.</em></h2>
+              <h2>Frontend developer with<br /><em>4 years of experience.</em></h2>
             </Reveal>
             <Reveal delay={100}>
               <p className="intro-band__body">
-                I’m a frontend developer with 3.7 years of experience creating responsive, scalable products. From rebranding a cybersecurity dashboard to rebuilding hundreds of pages, I bring a thoughtful, collaborative approach to every layer of the UI.
+                I’m a frontend developer with 4 years of experience creating responsive, scalable products. From rebranding a cybersecurity dashboard to rebuilding hundreds of pages, I bring a thoughtful, collaborative approach to every layer of the UI.
               </p>
               <a className="light-link" href={emailLink} target="_blank" rel="noreferrer">Have something in mind? <ArrowIcon diagonal /></a>
             </Reveal>
